@@ -1,0 +1,102 @@
+programa {
+    //cada variavel vai receber qual lado esta do rio ela está(lao a ou lado b)
+    caracter campones = 'a'
+    caracter lobo = 'a'
+    caracter ovelha = 'a'
+    caracter couve = 'a'
+    inteiro ser
+    
+    //mostrar como está o lados do rio indicado
+    funcao mostraLado(caracter lado){
+        escreva("No Lado "+lado+"(")
+        se(campones == lado){ escreva(" 1=Campones,")}
+        se(lobo == lado){ escreva(" 2=Lobo,")}
+        se(ovelha == lado){ escreva(" 3=Ovelha,")}
+        se(couve == lado){ escreva(" 4=Couve,")}
+        escreva(")|")
+    }
+    
+    //mudar o inten para o lado indicado
+    funcao transporta(inteiro iten, caracter lado){
+        escolha(iten){
+            caso 1:
+             campones = lado
+            pare
+            
+             caso 2:
+             lobo = lado
+             campones = lado
+            pare
+            
+             caso 3:
+             ovelha = lado
+             campones = lado
+            pare
+            
+             caso 4:
+             couve = lado
+             campones = lado
+            pare
+        }
+    }
+    
+    //verificar as situaçoes que o usuario ganha ou perde
+    funcao caracter loser_win(){
+        //valor = c=> continua
+        //valor = p=> game over
+        //valor = g-> Ganhou
+        caracter valor = 'c'
+        
+        se (lobo == ovelha e lobo != campones){
+            valor = 'p'
+        }
+        
+        se (ovelha == couve e ovelha != campones){
+            valor = 'p'
+        }
+        
+        se(lobo == 'b' e ovelha == 'b' e couve == 'b'){
+            valor = 'g'
+        }
+        
+        retorne valor
+    }
+
+	funcao inicio() {
+	    caracter lado = 'b'
+	    caracter novoLado = 'b'
+	    caracter situacao = 'c'
+	    
+	    escreva("Voce deve levar o lobo, a ovelha e o couve do lado a para o lado b do rio;\n")
+	    escreva("O campones só pode transportar um por ves ou ir sozinho;\n")
+	    escreva("Cuidado para não deixar a OVELHA a sós com o COUVE e nem o LOBO a sós com a OVELHA \n")
+	    mostraLado('a')
+	    mostraLado('b')
+	    
+	    enquanto(situacao == 'c'){
+	        escreva("escolha o numero do iten para levar para o lado "+lado+" do rio: ")
+    	    leia(ser)
+    	    transporta(ser, lado)
+    	    mostraLado('a')
+    	    mostraLado('b')
+    	    situacao = loser_win()
+    	    
+    	    se(lado == 'a'){
+                novoLado = 'b'
+            }
+            
+            se(lado == 'b'){
+                novoLado = 'a'
+            }
+    	    lado = novoLado
+	    }
+	    
+	    se(situacao == 'p'){
+	        escreva("Perdeu!")
+	    }
+	    
+	    se(situacao == 'g'){
+	        escreva("Ganhou!")
+	    }
+	}
+}
