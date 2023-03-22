@@ -1,0 +1,14 @@
+programa {
+    inclua biblioteca Matematica
+    real salario, valor_hora
+    
+	funcao inicio() {
+		escreva("Qual o valor do seu salario por mês?(use ponto ao inves de virgula) : ")
+		leia(salario)
+		
+		valor_hora= salario/220
+		valor_hora = Matematica.arredondar(valor_hora,2)
+		
+		escreva("O valor da sua hora de trabalho é: R$ "+valor_hora)
+	}
+}
