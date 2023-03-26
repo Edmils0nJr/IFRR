@@ -1,0 +1,33 @@
+programa {
+    
+	funcao inicio() {
+	    inteiro tipo
+        real ipva = 0.00, valor_veiculo
+    
+		escreva("Qual categoria é seu carro:?\n")
+		escreva("1 = Carro particular de passeio\n")
+		escreva("2 = Caminhonetes e ultilitários \n")
+		escreva("3 = Motocicletas e quadriciculos \n")
+		escreva("Digite o numero correspondente: ")
+		leia(tipo)
+		escreva("Agora digite o valor do seu veiculo de acordo com tabela FIPE(use ponto no lugar da virgula) : ")
+		leia(valor_veiculo)
+		
+		escolha(tipo){
+		    caso 1 :
+		     ipva = valor_veiculo*0.03
+		    pare
+		    
+		    caso 2 :
+		     ipva = valor_veiculo*0.02
+		    pare
+		    
+		    caso 3 :
+		     ipva = valor_veiculo*0.02
+		    pare
+		}
+		
+	    escreva("O valor do seu IPVA é: R$ ",ipva)
+		
+	}
+}
