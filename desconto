@@ -1,0 +1,25 @@
+programa {
+    inclua biblioteca Matematica --> m
+    
+    real item_1, item_2, item_3, total=0.00, desconto, liquido
+	funcao inicio() {
+		escreva ("Escreva o valor do primeiro item: R$ ")
+		leia(item_1)
+		
+		escreva ("Escreva o valor do segundo item: R$ ")
+		leia(item_2)
+		
+		escreva ("Escreva o valor do terceiro item: R$ ")
+		leia(item_3)
+		
+		total = item_1 + item_2 + item_3
+		desconto = m.arredondar(total*0.2, 2)
+		liquido = m.arredondar(total*0.8, 2)
+		
+		escreva("_________RELATORIO_________\n")
+		escreva("Total das Compras: R$ ",total,"\n" )
+		escreva("Valor do desconto de 20% é R$ ",desconto,"\n" )
+		escreva("Cliente deve pagar : R$ ",liquido,"\n" )
+		
+	}
+}
